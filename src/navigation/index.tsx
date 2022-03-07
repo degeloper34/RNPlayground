@@ -53,7 +53,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="GuestNavigator"
+        name="Guest"
         component={GuestNavigator}
         options={{headerShown: false}}
       />

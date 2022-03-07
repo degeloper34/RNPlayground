@@ -1,10 +1,13 @@
 import {Pressable, StyleSheet, Text, TextInput, View} from "react-native";
 import {RootStackScreenProps} from "../../types";
+import {postLogin} from "../service/authService";
 
 export default function LoginScreen({
   navigation,
 }: RootStackScreenProps<"Login">) {
-  const onPressLoginBtn = () => {
+  const onPressLoginBtn = async () => {
+    // const abc = await postLogin("johnd", "m38rmF$");
+    // console.log("abc", abc);
     navigation.navigate("Root");
   };
   return (
@@ -51,6 +54,9 @@ export default function LoginScreen({
         >
           <Text>Login</Text>
         </Pressable>
+      </View>
+      <View style={{alignItems: "center", marginTop: 12}}>
+        <Text>Don't have an account? Sign up</Text>
       </View>
 
       <View style={styles.flexView} />
