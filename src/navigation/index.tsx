@@ -1,9 +1,4 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
-import {FontAwesome} from "@expo/vector-icons";
+import {FontAwesome5} from "@expo/vector-icons";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
@@ -12,21 +7,17 @@ import {
 } from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import * as React from "react";
-import {ColorSchemeName, Pressable} from "react-native";
-
+import {ColorSchemeName} from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
-import {
-  RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps,
-} from "../../types";
+import {RootStackParamList, RootTabParamList} from "../../types";
 import CartScreen from "../screens/CartScreen";
 import ProductListScreen from "../screens/ProductListScreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 import GuestNavigator from "./StackNavigators/GuestNavigator";
+import ProductDetailScreen from "../screens/ProductDetailScreen";
 
 export default function Navigation({
   colorScheme,
@@ -63,6 +54,16 @@ function RootNavigator() {
         options={{headerShown: false}}
       />
       <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetailScreen}
+        options={{
+          headerStyle: {backgroundColor: Colors.mainNight},
+          headerTitleStyle: {
+            color: Colors.mainGrey,
+          },
+        }}
+      />
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{title: "Oops!"}}
@@ -81,13 +82,23 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
-
   return (
     <BottomTab.Navigator
       initialRouteName="TabOne"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: Colors.mainYellow,
+        headerStyle: {
+          backgroundColor: Colors.mainNight,
+        },
+        headerTitleStyle: {
+          color: Colors.mainYellow,
+        },
+        tabBarStyle: {
+          backgroundColor: Colors.mainNight,
+        },
+        tabBarLabelStyle: {
+          fontFamily: "sora-medium",
+        },
       }}
     >
       <BottomTab.Screen
@@ -95,7 +106,8 @@ function BottomTabNavigator() {
         component={ProductListScreen}
         options={{
           title: "Products",
-          tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({color}) => <TabBarIcon name="home" color={color} />,
+          tabBarLabel: "Home",
         }}
       />
 
@@ -104,7 +116,10 @@ function BottomTabNavigator() {
         component={CartScreen}
         options={{
           title: "Cart",
-          tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({color}) => (
+            <TabBarIcon name="shopping-basket" color={color} />
+          ),
+          tabBarLabel: "Cart",
         }}
       />
       {/* <BottomTab.Screen
@@ -138,8 +153,8 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
+  name: React.ComponentProps<typeof FontAwesome5>["name"];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{marginBottom: -3}} {...props} />;
+  return <FontAwesome5 size={24} style={{marginBottom: -3}} {...props} />;
 }

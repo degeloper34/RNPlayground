@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, Text, TextInput, View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import {RootStackScreenProps} from "../../types";
 
 export default function CartScreen({
