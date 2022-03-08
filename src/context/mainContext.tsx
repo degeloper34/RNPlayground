@@ -1,23 +1,38 @@
-import {createContext, useState} from "react";
+import {createContext, useState, ReactNode} from "react";
 
 export const MainContext = createContext<any>(null);
 
-export function MainContextProvider({children}) {
-  const [amount, setAmount] = useState(0);
+export function MainContextProvider({children}: {children: ReactNode}) {
   const [defaultContext, setDefaultContext] = useState({
     appLoading: false,
-    amount,
-    deposit,
-    withdraw,
+    cart: {},
     setAppLoading,
+    updateCart,
   });
 
-  function deposit(value) {
-    setAmount(amount + 1);
-  }
+  function updateCart(product, quantity, operation) {
+    console.log("product", product);
+    console.log("quantity", quantity);
+    console.log("operation", operation);
+    let cartObject: any = defaultContext.cart;
+    const productId = product.id;
 
-  function withdraw(value) {
-    setAmount(amount - 2);
+    if (!cartObject.hasOwnProperty(productId)) {
+      cartObject[productId] = {};
+    }
+
+    if (!cartObject[productId].hasOwnProperty("quantity")) {
+      cartObject[productId] = {...product, quantity};
+    } else {
+      cartObject[productId] = {
+        ...product,
+        quantity: cartObject[productId].quantity + quantity,
+      };
+    }
+
+    console.log("cartObject", cartObject);
+
+    setDefaultContext({...defaultContext, cart: cartObject});
   }
 
   function setAppLoading(bool: boolean) {

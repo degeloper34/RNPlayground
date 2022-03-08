@@ -1,6 +1,10 @@
-import {View, StyleSheet, TextInput} from "react-native";
+import {View, StyleSheet, TextInput, TextInputProps} from "react-native";
 
-export function CustomTextInput({placeholder}) {
+interface ITextInputProps extends TextInputProps {
+  placeholder: string;
+}
+
+export function CustomTextInput({placeholder}: ITextInputProps) {
   return (
     <View style={styles.textInputView}>
       <TextInput placeholder={placeholder} />

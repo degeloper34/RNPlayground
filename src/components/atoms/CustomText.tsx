@@ -1,8 +1,25 @@
-import {Text, TextProps} from "../Themed";
+import Colors from "../../constants/Colors";
+import {Text, TextProps} from "react-native";
 
-export function CustomText(props: TextProps) {
+interface IProps extends TextProps {
+  text: string | number;
+  type: "regular" | "medium" | "bold";
+  fontSize?: number;
+  textColor?: string;
+  underline?: boolean;
+}
+
+export function CustomText({
+  type = "medium",
+  fontSize = 12,
+  underline = false,
+  textColor = Colors.mainNight,
+  style,
+  text,
+  ...attrs
+}: IProps) {
   const decideFontFamilyByType = () => {
-    switch (props.type) {
+    switch (type) {
       case "regular":
         return "sora-regular";
       case "medium":
@@ -16,19 +33,19 @@ export function CustomText(props: TextProps) {
 
   return (
     <Text
-      {...props}
+      {...attrs}
       allowFontScaling={false}
       style={[
-        props.style,
+        style,
         {
           fontFamily: decideFontFamilyByType(),
-          fontSize: props.fontSize || 12,
-          color: props.textColor,
-          textDecorationLine: props.underline ? "underline" : "none",
+          fontSize: fontSize,
+          color: textColor,
+          textDecorationLine: underline ? "underline" : "none",
         },
       ]}
     >
-      {props.text}
+      {text}
     </Text>
   );
 }

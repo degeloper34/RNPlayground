@@ -1,4 +1,5 @@
-import {useContext, useEffect, useState} from "react";
+import {Ionicons} from "@expo/vector-icons";
+import {useContext, useLayoutEffect, useState} from "react";
 import {
   Dimensions,
   FlatList,
@@ -11,34 +12,29 @@ import {RootStackScreenProps} from "../../types";
 import {CustomText} from "../components/atoms";
 import Colors from "../constants/Colors";
 import {MainContext} from "../context/mainContext";
-import {getAllProducts} from "../service/productsService";
 
-export default function ProductListScreen({
+export default function CategoryScreen({
   navigation,
-}: RootStackScreenProps<"Login">) {
+  route,
+}: RootStackScreenProps<"Category">) {
+  const {category, categoryTitle} = route?.params;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: categoryTitle,
+      headerLeft: () => (
+        <Pressable onPress={() => navigation.pop()}>
+          <Ionicons name="arrow-back-outline" size={24} color={Colors.white} />
+        </Pressable>
+      ),
+    });
+  }, [navigation]);
+
+  console.log("category", category);
   const [products, setProducts] = useState({});
   const context = useContext(MainContext);
 
   console.log("context", context);
-  useEffect(() => {
-    fetchAllProducts();
-  }, []);
-
-  const fetchAllProducts = async () => {
-    const abc = await getAllProducts();
-
-    let test: any = {};
-
-    for (let eachProduct of abc) {
-      if (!test.hasOwnProperty(eachProduct.category)) {
-        test[eachProduct.category] = [];
-      }
-
-      test[eachProduct.category].push(eachProduct);
-    }
-
-    setProducts(test);
-  };
 
   const renderProduct = ({item}) => {
     return (
@@ -47,10 +43,11 @@ export default function ProductListScreen({
         style={{
           width: Dimensions.get("screen").width / 3,
           height: Dimensions.get("screen").height / 3.5,
-          marginRight: 12,
           borderRadius: 8,
           backgroundColor: "white",
           overflow: "hidden",
+          flex: 1,
+          margin: 12,
         }}
       >
         <View style={{flex: 3}}>
@@ -92,56 +89,12 @@ export default function ProductListScreen({
     );
   };
 
-  const renderCategory = ({item}) => {
-    return (
-      <View style={{marginBottom: 12}}>
-        <View style={{flexDirection: "row", alignItems: "center"}}>
-          <View style={{flex: 1, padding: 12}}>
-            <CustomText
-              text={item}
-              type={"bold"}
-              textColor={Colors.mainNight}
-              fontSize={16}
-            />
-          </View>
-
-          <Pressable
-            onPress={() =>
-              navigation.navigate("Category", {
-                category: products[item],
-                categoryTitle: item,
-              })
-            }
-            style={{marginRight: 12}}
-          >
-            <CustomText
-              text={"Show all"}
-              type={"regular"}
-              textColor={Colors.mainNight}
-              underline
-            />
-          </Pressable>
-        </View>
-
-        <FlatList
-          data={products[item]}
-          renderItem={renderProduct}
-          style={{flex: 1, paddingHorizontal: 12}}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(_, index) => String(index)}
-        />
-      </View>
-    );
-  };
-
-  console.log("products", products);
-
   return (
     <View style={styles.container}>
       <FlatList
-        data={Object.keys(products)}
-        renderItem={renderCategory}
+        data={category}
+        numColumns={2}
+        renderItem={renderProduct}
         showsVerticalScrollIndicator={false}
         keyExtractor={(_, index) => String(index)}
       />

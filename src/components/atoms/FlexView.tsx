@@ -1,13 +1,18 @@
 import {View} from "react-native";
 
-export function FlexView(props: any) {
+interface IProps {
+  flex?: number;
+  children?: React.ReactNode;
+}
+
+export function FlexView({flex = 1, children}: IProps) {
   return (
     <View
       style={{
-        flex: props.flex || 1,
+        flex: flex || 1,
       }}
     >
-      {props.children}
+      {children}
     </View>
   );
 }

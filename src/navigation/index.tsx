@@ -9,8 +9,6 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import * as React from "react";
 import {ColorSchemeName} from "react-native";
 import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
-import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import {RootStackParamList, RootTabParamList} from "../../types";
 import CartScreen from "../screens/CartScreen";
@@ -18,6 +16,7 @@ import ProductListScreen from "../screens/ProductListScreen";
 import LinkingConfiguration from "./LinkingConfiguration";
 import GuestNavigator from "./StackNavigators/GuestNavigator";
 import ProductDetailScreen from "../screens/ProductDetailScreen";
+import CategoryScreen from "../screens/CategoryScreen";
 
 export default function Navigation({
   colorScheme,
@@ -63,13 +62,26 @@ function RootNavigator() {
           },
         }}
       />
+
+      <Stack.Screen
+        name="Category"
+        component={CategoryScreen}
+        options={{
+          headerStyle: {backgroundColor: Colors.mainNight},
+          headerTitleStyle: {
+            color: Colors.mainGrey,
+          },
+        }}
+      />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{title: "Oops!"}}
       />
-      <Stack.Group screenOptions={{presentation: "modal"}}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+      <Stack.Group
+        screenOptions={{presentation: "transparentModal", headerShown: false}}
+      >
+        <Stack.Screen name="Modal" component={ProductDetailScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -95,6 +107,7 @@ function BottomTabNavigator() {
         },
         tabBarStyle: {
           backgroundColor: Colors.mainNight,
+          borderTopWidth: 0,
         },
         tabBarLabelStyle: {
           fontFamily: "sora-medium",

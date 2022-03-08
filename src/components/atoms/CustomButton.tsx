@@ -1,14 +1,20 @@
-import {StyleSheet, Pressable} from "react-native";
+import {StyleSheet, Pressable, PressableProps} from "react-native";
+import Colors from "../../constants/Colors";
 import {CustomText} from "./CustomText";
 
-export function CustomButton({onPress, text}) {
+interface IProps extends PressableProps {
+  onPress?: () => void;
+  text: string;
+}
+
+export function CustomButton({onPress, text}: IProps) {
   return (
     <Pressable onPress={onPress} style={styles.btnStyle}>
       <CustomText
         type={"bold"}
         fontSize={14}
         text={text}
-        textColor={"#21325E"}
+        textColor={Colors.mainNight}
       />
     </Pressable>
   );
@@ -19,7 +25,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 30,
-    backgroundColor: "#F1D00A",
+    backgroundColor: Colors.mainYellow,
     padding: 12,
   },
 });
