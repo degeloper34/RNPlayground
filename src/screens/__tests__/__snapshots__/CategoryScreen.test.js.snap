@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryScreen should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F0F0F0",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "padding": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "borderRadius": 8,
+            "justifyContent": "center",
+            "paddingHorizontal": 6,
+            "paddingVertical": 12,
+          },
+          Object {
+            "backgroundColor": "#21325E",
+          },
+        ]
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        placeholder="Search"
+        placeholderTextColor="#F1D00A"
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "color": "#F1D00A",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+    </View>
+  </View>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "category": "men's clothing",
+          "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+          "id": 1,
+          "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+          "price": 109.95,
+          "rating": Object {
+            "count": 120,
+            "rate": 3.9,
+          },
+          "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    showsVerticalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 8,
+                  "height": 381.14285714285717,
+                  "overflow": "hidden",
+                  "width": 250,
+                },
+                Object {
+                  "flex": 1,
+                  "margin": 12,
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 3,
+                }
+              }
+            >
+              <Image
+                resizeMode="contain"
+                source={
+                  Object {
+                    "uri": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                  }
+                }
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#21325E",
+                  "flex": 1,
+                  "marginTop": 12,
+                  "padding": 3,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flex": 2,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  numberOfLines={2}
+                  style={
+                    Array [
+                      undefined,
+                      Object {
+                        "color": "#F0F0F0",
+                        "fontFamily": "sora-medium",
+                        "fontSize": 12,
+                        "textDecorationLine": "none",
+                      },
+                    ]
+                  }
+                >
+                  Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flex": 1,
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  numberOfLines={2}
+                  style={
+                    Array [
+                      undefined,
+                      Object {
+                        "color": "#F1D00A",
+                        "fontFamily": "sora-bold",
+                        "fontSize": 12,
+                        "textDecorationLine": "none",
+                      },
+                    ]
+                  }
+                >
+                  $109.95
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

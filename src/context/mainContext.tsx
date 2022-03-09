@@ -1,4 +1,5 @@
 import {createContext, useState, ReactNode} from "react";
+import {Product} from "../../types";
 
 export const MainContext = createContext<any>(null);
 
@@ -10,7 +11,11 @@ export function MainContextProvider({children}: {children: ReactNode}) {
     updateCart,
   });
 
-  function updateCart(product, quantity: number, operation: "add" | "remove") {
+  function updateCart(
+    product: Product,
+    quantity: number,
+    operation: "add" | "remove"
+  ) {
     console.log("product", product);
     console.log("quantity", quantity);
     console.log("operation", operation);

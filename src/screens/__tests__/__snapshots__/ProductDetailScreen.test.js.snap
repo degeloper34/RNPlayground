@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetailScreen should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgba(0,0,0,0.5)",
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#21325E",
+        "flex": 3,
+        "paddingBottom": 36,
+        "paddingHorizontal": 24,
+        "paddingTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 8,
+          "flex": 1,
+        }
+      }
+    >
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "uri": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+          }
+        }
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 2,
+          "marginTop": 24,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F1D00A",
+              "fontFamily": "sora-bold",
+              "fontSize": 14,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+      </Text>
+      <View
+        style={
+          Object {
+            "marginTop": 12,
+          }
+        }
+      />
+      <Text
+        allowFontScaling={false}
+        numberOfLines={8}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F0F0F0",
+              "fontFamily": "sora-medium",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday
+      </Text>
+      <View
+        style={
+          Object {
+            "marginTop": 12,
+          }
+        }
+      />
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F1D00A",
+              "fontFamily": "sora-bold",
+              "fontSize": 14,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        $109.95
+      </Text>
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "marginBottom": 12,
+              "marginTop": 24,
+            },
+            Object {
+              "color": "#fff",
+              "fontFamily": "sora-bold",
+              "fontSize": 14,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Please select quantity
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "marginHorizontal": 6,
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                undefined,
+                Object {
+                  "color": "#F1D00A",
+                  "fontFamily": "sora-medium",
+                  "fontSize": 18,
+                  "textDecorationLine": "none",
+                },
+              ]
+            }
+          >
+            1
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F1D00A",
+              "borderRadius": 30,
+              "justifyContent": "center",
+              "padding": 12,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            style={
+              Array [
+                undefined,
+                Object {
+                  "color": "#21325E",
+                  "fontFamily": "sora-bold",
+                  "fontSize": 14,
+                  "textDecorationLine": "none",
+                },
+              ]
+            }
+          >
+            Add to Cart
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "marginLeft": 12,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

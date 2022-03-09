@@ -130,7 +130,7 @@ export default function ProductListScreen({
 
   return (
     <View style={container}>
-      <Loading isLoadingActive={context.appLoading} />
+      <Loading isLoadingActive={context?.appLoading} />
       <FlatList
         data={Object.keys(products)}
         renderItem={renderCategory}

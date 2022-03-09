@@ -1,14 +1,16 @@
 import {FontAwesome} from "@expo/vector-icons";
 import {useContext} from "react";
 import {FlatList, Image, Pressable, StyleSheet, View} from "react-native";
-import {RootStackScreenProps} from "../../types";
 import {CustomText, EmptyState} from "../components/atoms";
 import Colors from "../constants/Colors";
 import {MainContext} from "../context/mainContext";
 
-export default function CartScreen({navigation}: RootStackScreenProps<"Cart">) {
+export default function CartScreen() {
   const context = useContext(MainContext);
-  const showEmptyState = Object.keys(context.cart).length === 0;
+  const showEmptyState =
+    typeof context?.cart === "undefined"
+      ? true
+      : Object.keys(context?.cart).length === 0;
 
   const renderItem = ({item}: {item: string}) => {
     return (

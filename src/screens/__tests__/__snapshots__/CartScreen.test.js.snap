@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartScreen should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          undefined,
+          Object {
+            "color": "#21325E",
+            "fontFamily": "sora-medium",
+            "fontSize": 14,
+            "textDecorationLine": "none",
+          },
+        ]
+      }
+    >
+      There is no product in your cart.
+    </Text>
+  </View>
+</View>
+`;

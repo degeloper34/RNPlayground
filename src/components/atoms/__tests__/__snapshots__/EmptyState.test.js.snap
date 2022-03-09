@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmptyState renders correctly cart EmptyState 1`] = `
+exports[`EmptyState renders correctly 1`] = `
 <View
   style={
     Object {

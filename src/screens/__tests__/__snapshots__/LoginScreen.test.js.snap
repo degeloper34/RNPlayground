@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#21325E",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 48,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        undefined,
+        Object {
+          "color": "#F0F0F0",
+          "fontFamily": "sora-bold",
+          "fontSize": 24,
+          "textDecorationLine": "none",
+        },
+      ]
+    }
+  >
+    Hello,
+  </Text>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        undefined,
+        Object {
+          "color": "#F1D00A",
+          "fontFamily": "sora-bold",
+          "fontSize": 24,
+          "textDecorationLine": "none",
+        },
+      ]
+    }
+  >
+    Login now
+  </Text>
+  <View
+    style={
+      Object {
+        "borderRadius": 8,
+        "flex": 1.5,
+        "justifyContent": "center",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 6,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "borderRadius": 8,
+              "justifyContent": "center",
+              "paddingHorizontal": 6,
+              "paddingVertical": 12,
+            },
+            Object {
+              "backgroundColor": "#F0F0F0",
+            },
+          ]
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          maxLength={30}
+          onChangeText={[Function]}
+          placeholder="username"
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "color": "#21325E",
+            }
+          }
+          underlineColorAndroid="transparent"
+          value="johnd"
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "marginTop": 12,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "borderRadius": 8,
+              "justifyContent": "center",
+              "paddingHorizontal": 6,
+              "paddingVertical": 12,
+            },
+            Object {
+              "backgroundColor": "#F0F0F0",
+            },
+          ]
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          maxLength={30}
+          onChangeText={[Function]}
+          placeholder="password"
+          rejectResponderTermination={true}
+          secureTextEntry={true}
+          style={
+            Object {
+              "color": "#21325E",
+            }
+          }
+          underlineColorAndroid="transparent"
+          value="m38rmF$"
+        />
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flexDirection": "row",
+            "marginTop": 12,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              undefined,
+              Object {
+                "color": "#F1D00A",
+                "fontFamily": "sora-medium",
+                "fontSize": 12,
+                "textDecorationLine": "none",
+              },
+            ]
+          }
+        >
+          Forgot password?
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 2,
+          }
+        }
+      />
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#F1D00A",
+          "borderRadius": 30,
+          "justifyContent": "center",
+          "padding": 12,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#21325E",
+              "fontFamily": "sora-bold",
+              "fontSize": 14,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Login
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginVertical": 24,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          undefined,
+          Object {
+            "color": "white",
+            "fontFamily": "sora-medium",
+            "fontSize": 12,
+            "textDecorationLine": "none",
+          },
+        ]
+      }
+    >
+      Don't have an account?
+    </Text>
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          undefined,
+          Object {
+            "color": "#F1D00A",
+            "fontFamily": "sora-medium",
+            "fontSize": 12,
+            "textDecorationLine": "none",
+          },
+        ]
+      }
+    >
+       Sign up
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "marginTop": 36,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      style={
+        Array [
+          undefined,
+          Object {
+            "color": "#F0F0F0",
+            "fontFamily": "sora-medium",
+            "fontSize": 10,
+            "textDecorationLine": "none",
+          },
+        ]
+      }
+    >
+      vundefined
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+</View>
+`;

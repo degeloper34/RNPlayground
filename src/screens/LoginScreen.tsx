@@ -58,7 +58,7 @@ export default function LoginScreen({
 
   return (
     <View style={container}>
-      <Loading isLoadingActive={context.appLoading} />
+      <Loading isLoadingActive={context?.appLoading} />
       <FlexView />
       <CustomText
         type={"bold"}
