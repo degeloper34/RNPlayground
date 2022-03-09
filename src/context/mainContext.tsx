@@ -10,27 +10,29 @@ export function MainContextProvider({children}: {children: ReactNode}) {
     updateCart,
   });
 
-  function updateCart(product, quantity, operation) {
+  function updateCart(product, quantity: number, operation: "add" | "remove") {
     console.log("product", product);
     console.log("quantity", quantity);
     console.log("operation", operation);
     let cartObject: any = defaultContext.cart;
     const productId = product.id;
 
-    if (!cartObject.hasOwnProperty(productId)) {
-      cartObject[productId] = {};
-    }
+    if (operation === "add") {
+      if (!cartObject.hasOwnProperty(productId)) {
+        cartObject[productId] = {};
+      }
 
-    if (!cartObject[productId].hasOwnProperty("quantity")) {
-      cartObject[productId] = {...product, quantity};
+      if (!cartObject[productId].hasOwnProperty("quantity")) {
+        cartObject[productId] = {...product, quantity};
+      } else {
+        cartObject[productId] = {
+          ...product,
+          quantity: cartObject[productId].quantity + quantity,
+        };
+      }
     } else {
-      cartObject[productId] = {
-        ...product,
-        quantity: cartObject[productId].quantity + quantity,
-      };
+      delete cartObject[productId];
     }
-
-    console.log("cartObject", cartObject);
 
     setDefaultContext({...defaultContext, cart: cartObject});
   }

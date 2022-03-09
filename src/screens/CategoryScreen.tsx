@@ -1,5 +1,5 @@
 import {Ionicons} from "@expo/vector-icons";
-import {useContext, useLayoutEffect, useState} from "react";
+import {useLayoutEffect, useState} from "react";
 import {
   Dimensions,
   FlatList,
@@ -9,15 +9,21 @@ import {
   View,
 } from "react-native";
 import {RootStackScreenProps} from "../../types";
-import {CustomText} from "../components/atoms";
+import {
+  CustomText,
+  CustomTextInput,
+  EmptyState,
+  FlexView,
+} from "../components/atoms";
 import Colors from "../constants/Colors";
-import {MainContext} from "../context/mainContext";
 
 export default function CategoryScreen({
   navigation,
   route,
 }: RootStackScreenProps<"Category">) {
   const {category, categoryTitle} = route?.params;
+
+  const [searchText, setSearchText] = useState("");
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -30,16 +36,10 @@ export default function CategoryScreen({
     });
   }, [navigation]);
 
-  console.log("category", category);
-  const [products, setProducts] = useState({});
-  const context = useContext(MainContext);
-
-  console.log("context", context);
-
   const renderProduct = ({item}) => {
     return (
       <Pressable
-        onPress={() => navigation.navigate("Modal", {product: item})}
+        onPress={() => navigation.navigate("ProductDetail", {product: item})}
         style={{
           width: Dimensions.get("screen").width / 3,
           height: Dimensions.get("screen").height / 3.5,
@@ -50,13 +50,14 @@ export default function CategoryScreen({
           margin: 12,
         }}
       >
-        <View style={{flex: 3}}>
+        <FlexView flex={3}>
           <Image
             source={{uri: item.image}}
             style={{flex: 1}}
             resizeMode={"contain"}
           />
-        </View>
+        </FlexView>
+
         <View
           style={{
             flex: 1,
@@ -65,7 +66,7 @@ export default function CategoryScreen({
             marginTop: 12,
           }}
         >
-          <View style={{flex: 2}}>
+          <FlexView flex={2}>
             <CustomText
               text={item.title}
               type={"medium"}
@@ -73,9 +74,9 @@ export default function CategoryScreen({
               fontSize={12}
               numberOfLines={2}
             />
-          </View>
+          </FlexView>
 
-          <View style={{flex: 1}}>
+          <FlexView>
             <CustomText
               text={"$" + item.price}
               type={"bold"}
@@ -83,21 +84,46 @@ export default function CategoryScreen({
               fontSize={12}
               numberOfLines={2}
             />
-          </View>
+          </FlexView>
         </View>
       </Pressable>
     );
   };
 
+  const onChangeSearch = (text: string) => {
+    setSearchText(text);
+  };
+
+  const filteredCategoryList = category?.filter((item) =>
+    item?.title?.substring(0, searchText.length).includes(searchText)
+  );
+
+  const showEmptyState = filteredCategoryList.length === 0;
+
   return (
     <View style={styles.container}>
-      <FlatList
-        data={category}
-        numColumns={2}
-        renderItem={renderProduct}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(_, index) => String(index)}
-      />
+      <View style={styles.textInputView}>
+        <CustomTextInput
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchText}
+          backgroundColor={Colors.mainNight}
+          placeholderTextColor={Colors.mainYellow}
+          textColor={Colors.mainYellow}
+        />
+      </View>
+
+      {showEmptyState ? (
+        <EmptyState emptyStateText="We couldn't find any result" />
+      ) : (
+        <FlatList
+          data={filteredCategoryList}
+          numColumns={2}
+          renderItem={renderProduct}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(_, index) => String(index)}
+        />
+      )}
     </View>
   );
 }
@@ -106,5 +132,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.mainGrey,
+  },
+  textInputView: {
+    padding: 12,
   },
 });

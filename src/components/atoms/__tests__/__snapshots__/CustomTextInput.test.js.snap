@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomTextInput password TextInput renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F0F0F0",
+      "borderRadius": 8,
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 6,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    maxLength={30}
+    onChangeText={[MockFunction]}
+    placeholder="password"
+    rejectResponderTermination={true}
+    secureTextEntry={true}
+    underlineColorAndroid="transparent"
+    value=""
+  />
+</View>
+`;
+
+exports[`CustomTextInput username TextInput renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#F0F0F0",
+      "borderRadius": 8,
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 6,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    maxLength={30}
+    onChangeText={[MockFunction]}
+    placeholder="username"
+    rejectResponderTermination={true}
+    underlineColorAndroid="transparent"
+    value=""
+  />
+</View>
+`;

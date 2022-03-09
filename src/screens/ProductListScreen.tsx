@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useLayoutEffect, useState} from "react";
 import {
   Dimensions,
   FlatList,
@@ -8,10 +8,11 @@ import {
   View,
 } from "react-native";
 import {RootStackScreenProps} from "../../types";
-import {CustomText} from "../components/atoms";
+import {CustomText, Loading} from "../components/atoms";
 import Colors from "../constants/Colors";
 import {MainContext} from "../context/mainContext";
-import {getAllProducts} from "../service/productsService";
+import {getAllProducts} from "../api/services/productsService";
+import * as SecureStore from "expo-secure-store";
 
 export default function ProductListScreen({
   navigation,
@@ -19,12 +20,35 @@ export default function ProductListScreen({
   const [products, setProducts] = useState({});
   const context = useContext(MainContext);
 
-  console.log("context", context);
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <Pressable onPress={onPressLogout}>
+          <CustomText
+            text={"Logout"}
+            type={"bold"}
+            textColor={Colors.white}
+            style={{marginLeft: 12}}
+          />
+        </Pressable>
+      ),
+    });
+  }, [navigation]);
+
+  const onPressLogout = async () => {
+    await SecureStore.deleteItemAsync("memberToken");
+    navigation.reset({
+      index: 0,
+      routes: [{name: "Guest"}],
+    });
+  };
+
   useEffect(() => {
     fetchAllProducts();
   }, []);
 
   const fetchAllProducts = async () => {
+    context.setAppLoading(true);
     const abc = await getAllProducts();
 
     let test: any = {};
@@ -38,12 +62,13 @@ export default function ProductListScreen({
     }
 
     setProducts(test);
+    context.setAppLoading(false);
   };
 
   const renderProduct = ({item}) => {
     return (
       <Pressable
-        onPress={() => navigation.navigate("Modal", {product: item})}
+        onPress={() => navigation.navigate("ProductDetail", {product: item})}
         style={{
           width: Dimensions.get("screen").width / 3,
           height: Dimensions.get("screen").height / 3.5,
@@ -135,10 +160,9 @@ export default function ProductListScreen({
     );
   };
 
-  console.log("products", products);
-
   return (
     <View style={styles.container}>
+      <Loading isLoadingActive={context.appLoading} />
       <FlatList
         data={Object.keys(products)}
         renderItem={renderCategory}

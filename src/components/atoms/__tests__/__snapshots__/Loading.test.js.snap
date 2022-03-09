@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders correctly with loading disable 1`] = `null`;
+
+exports[`Loading renders correctly with loading enable 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "bottom": 0,
+      "justifyContent": "center",
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+    }
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="#F1D00A"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;

@@ -1,7 +1,8 @@
 import {Alert, Pressable, StyleSheet, View} from "react-native";
 import {RootStackScreenProps} from "../../types";
 import Constants from "expo-constants";
-import {postLogin} from "../service/authService";
+import * as SecureStore from "expo-secure-store";
+import {memberLogin} from "../api/services/memberService";
 import {
   CustomText,
   FlexView,
@@ -9,26 +10,41 @@ import {
   CustomTextInput,
   CustomButton,
 } from "../components/atoms";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {MainContext} from "../context/mainContext";
 import Colors from "../constants/Colors";
 
 export default function LoginScreen({
   navigation,
 }: RootStackScreenProps<"Login">) {
+  const [username, setUsername] = useState<string>("johnd");
+  const [password, setPassword] = useState<string>("m38rmF$");
   const context = useContext(MainContext);
   const version = Constants?.manifest?.version;
 
   const onPressLoginBtn = async () => {
     context.setAppLoading(true);
-    const abc = await postLogin("johnd", "m38rmF$");
-    console.log("abc", abc);
+    const memberLoginResponse = await memberLogin(username, password);
+    console.log("memberLoginResponse", memberLoginResponse);
+
     context.setAppLoading(false);
-    navigation.navigate("Root");
+
+    if (memberLoginResponse) {
+      await SecureStore.setItemAsync("memberToken", memberLoginResponse.token);
+      navigation.navigate("Root");
+    }
   };
 
   const onPressWorkInProgress = () => {
     Alert.alert("Work in progress");
+  };
+
+  const onChangeUsername = (text: string) => {
+    setUsername(text);
+  };
+
+  const onChangePassword = (text: string) => {
+    setPassword(text);
   };
 
   const {
@@ -47,7 +63,7 @@ export default function LoginScreen({
       <CustomText
         type={"bold"}
         fontSize={24}
-        text={"Hey,"}
+        text={"Hello,"}
         textColor={Colors.mainGrey}
       />
       <CustomText
@@ -59,10 +75,21 @@ export default function LoginScreen({
 
       <View style={panelLogin}>
         <FlexView flex={6}>
-          <CustomTextInput placeholder="email" />
+          <CustomTextInput
+            placeholder="username"
+            value={username}
+            onChangeText={onChangeUsername}
+            maxLength={30}
+          />
 
           <View style={marginTop} />
-          <CustomTextInput placeholder="password" />
+          <CustomTextInput
+            placeholder="password"
+            value={password}
+            secureTextEntry
+            onChangeText={onChangePassword}
+            maxLength={30}
+          />
 
           <Pressable onPress={onPressWorkInProgress} style={btnForgotPassword}>
             <FlexView />

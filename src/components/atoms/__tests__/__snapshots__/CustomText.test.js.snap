@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomText renders correctly with text 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      undefined,
+      Object {
+        "color": "#21325E",
+        "fontFamily": "sora-medium",
+        "fontSize": 12,
+        "textDecorationLine": "none",
+      },
+    ]
+  }
+>
+  Hello, degeloper
+</Text>
+`;
+
+exports[`CustomText renders correctly with text and bold-type 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      undefined,
+      Object {
+        "color": "#21325E",
+        "fontFamily": "sora-bold",
+        "fontSize": 12,
+        "textDecorationLine": "none",
+      },
+    ]
+  }
+>
+  Hello, degeloper
+</Text>
+`;
+
+exports[`CustomText renders correctly with text and medium-type 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      undefined,
+      Object {
+        "color": "#21325E",
+        "fontFamily": "sora-medium",
+        "fontSize": 12,
+        "textDecorationLine": "none",
+      },
+    ]
+  }
+>
+  Hello, degeloper
+</Text>
+`;
+
+exports[`CustomText renders correctly with text and regular-type 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      undefined,
+      Object {
+        "color": "#21325E",
+        "fontFamily": "sora-regular",
+        "fontSize": 12,
+        "textDecorationLine": "none",
+      },
+    ]
+  }
+>
+  Hello, degeloper
+</Text>
+`;
+
+exports[`CustomText renders correctly with yellow text 1`] = `
+<Text
+  allowFontScaling={false}
+  style={
+    Array [
+      undefined,
+      Object {
+        "color": "#F1D00A",
+        "fontFamily": "sora-bold",
+        "fontSize": 12,
+        "textDecorationLine": "none",
+      },
+    ]
+  }
+>
+  Hello, degeloper
+</Text>
+`;

@@ -95,7 +95,7 @@ export default function ProductDetailScreen({
           />
 
           <CustomText
-            text={"Quantity"}
+            text={"Please select quantity"}
             type={"bold"}
             textColor={Colors.white}
             fontSize={14}

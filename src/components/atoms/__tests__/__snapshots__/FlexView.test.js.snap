@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlexView renders correctly with flex 1 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`FlexView renders correctly with flex 2 1`] = `
+<View
+  style={
+    Object {
+      "flex": 2,
+    }
+  }
+/>
+`;
+
+exports[`FlexView renders correctly without flex 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState renders correctly cart EmptyState 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text />
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        undefined,
+        Object {
+          "color": "#21325E",
+          "fontFamily": "sora-medium",
+          "fontSize": 14,
+          "textDecorationLine": "none",
+        },
+      ]
+    }
+  >
+    There is no product in your cart.
+  </Text>
+</View>
+`;
+
+exports[`EmptyState renders correctly with flex 1 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+/>
+`;
+
+exports[`EmptyState renders correctly with flex 2 1`] = `
+<View
+  style={
+    Object {
+      "flex": 2,
+    }
+  }
+/>
+`;
