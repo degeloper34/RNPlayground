@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard renders correctly with mandatory props 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 8,
+        "height": 381.14285714285717,
+        "overflow": "hidden",
+        "width": 250,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#21325E",
+        "flex": 1,
+        "marginTop": 12,
+        "padding": 3,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 2,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F0F0F0",
+              "fontFamily": "sora-medium",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Jacket
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F1D00A",
+              "fontFamily": "sora-bold",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        $120
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`ProductCard renders correctly with mandatory props and CategoryScreen style 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 8,
+        "height": 381.14285714285717,
+        "overflow": "hidden",
+        "width": 250,
+      },
+      Object {
+        "flex": 1,
+        "margin": 12,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#21325E",
+        "flex": 1,
+        "marginTop": 12,
+        "padding": 3,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 2,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F0F0F0",
+              "fontFamily": "sora-medium",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Jacket
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F1D00A",
+              "fontFamily": "sora-bold",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        $120
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`ProductCard renders correctly with mandatory props and ProductListScreen style 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "white",
+        "borderRadius": 8,
+        "height": 381.14285714285717,
+        "overflow": "hidden",
+        "width": 250,
+      },
+      Object {
+        "marginRight": 12,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+        }
+      }
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#21325E",
+        "flex": 1,
+        "marginTop": 12,
+        "padding": 3,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 2,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F0F0F0",
+              "fontFamily": "sora-medium",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        Jacket
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={2}
+        style={
+          Array [
+            undefined,
+            Object {
+              "color": "#F1D00A",
+              "fontFamily": "sora-bold",
+              "fontSize": 12,
+              "textDecorationLine": "none",
+            },
+          ]
+        }
+      >
+        $120
+      </Text>
+    </View>
+  </View>
+</View>
+`;

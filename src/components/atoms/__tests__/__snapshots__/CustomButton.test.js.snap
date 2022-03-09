@@ -84,47 +84,6 @@ exports[`CustomButton renders correctly with text 1`] = `
 </View>
 `;
 
-exports[`CustomButton renders correctly without text 1`] = `
-<View
-  accessible={true}
-  collapsable={false}
-  focusable={true}
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#F1D00A",
-      "borderRadius": 30,
-      "justifyContent": "center",
-      "padding": 12,
-    }
-  }
->
-  <Text
-    allowFontScaling={false}
-    style={
-      Array [
-        undefined,
-        Object {
-          "color": "#21325E",
-          "fontFamily": "sora-bold",
-          "fontSize": 14,
-          "textDecorationLine": "none",
-        },
-      ]
-    }
-  />
-</View>
-`;
-
 exports[`CustomButton renders correctly without text, onPress 1`] = `
 <View
   accessible={true}

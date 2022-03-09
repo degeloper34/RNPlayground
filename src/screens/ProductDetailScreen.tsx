@@ -44,29 +44,32 @@ export default function ProductDetailScreen({
     setQuantity(quantity + 1);
   };
 
+  const {
+    container,
+    transparentView,
+    innerContainer,
+    imageStyle,
+    imageView,
+    innerView,
+    marginTopView,
+    rowAlignedView,
+    txtSelectQuantity,
+    quantityView,
+    btnCancel,
+  } = styles;
+
   return (
-    <View style={styles.container}>
-      <Pressable
-        onPress={hideModal}
-        style={{flex: 1, backgroundColor: "rgba(0,0,0,0.5)"}}
-      />
-      <View
-        style={{
-          flex: 3,
-          backgroundColor: Colors.mainNight,
-          paddingHorizontal: 24,
-          paddingTop: 24,
-          paddingBottom: 36,
-        }}
-      >
-        <View style={{flex: 1, backgroundColor: "white", borderRadius: 8}}>
+    <View style={container}>
+      <Pressable onPress={hideModal} style={transparentView} />
+      <View style={innerContainer}>
+        <View style={imageView}>
           <Image
             source={{uri: product.image}}
-            style={{flex: 1}}
+            style={imageStyle}
             resizeMode={"contain"}
           />
         </View>
-        <View style={{flex: 2, marginTop: 24}}>
+        <View style={innerView}>
           <CustomText
             text={product.title}
             type={"bold"}
@@ -74,7 +77,9 @@ export default function ProductDetailScreen({
             fontSize={14}
             numberOfLines={2}
           />
-          <View style={{marginTop: 12}} />
+
+          <View style={marginTopView} />
+
           <CustomText
             text={product.description}
             type={"medium"}
@@ -83,7 +88,7 @@ export default function ProductDetailScreen({
             numberOfLines={8}
           />
 
-          <View style={{marginTop: 12}} />
+          <View style={marginTopView} />
 
           <CustomText
             text={"$" + product.price}
@@ -97,22 +102,15 @@ export default function ProductDetailScreen({
             type={"bold"}
             textColor={Colors.white}
             fontSize={14}
-            style={{marginTop: 24, marginBottom: 12}}
+            style={txtSelectQuantity}
           />
 
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
+          <View style={rowAlignedView}>
             <Pressable onPress={onPressMinusQuantity}>
               <AntDesign name="minuscircle" size={40} color={Colors.mainGrey} />
             </Pressable>
 
-            <View
-              style={{width: 40, marginHorizontal: 6, alignItems: "center"}}
-            >
+            <View style={quantityView}>
               <CustomText
                 text={quantity}
                 fontSize={18}
@@ -127,12 +125,12 @@ export default function ProductDetailScreen({
           </View>
         </View>
 
-        <View style={{flexDirection: "row", alignItems: "center"}}>
+        <View style={rowAlignedView}>
           <FlexView>
             <CustomButton text={"Add to Cart"} onPress={onPressAddToCart} />
           </FlexView>
 
-          <Pressable onPress={hideModal} style={{marginLeft: 12}}>
+          <Pressable onPress={hideModal} style={btnCancel}>
             <MaterialIcons name="cancel" size={50} color={Colors.mainGrey} />
           </Pressable>
         </View>
@@ -145,5 +143,47 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+  },
+  rowAlignedView: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  btnCancel: {
+    marginLeft: 12,
+  },
+  quantityView: {
+    width: 40,
+    marginHorizontal: 6,
+    alignItems: "center",
+  },
+  txtSelectQuantity: {
+    marginTop: 24,
+    marginBottom: 12,
+  },
+  innerContainer: {
+    flex: 3,
+    backgroundColor: Colors.mainNight,
+    paddingHorizontal: 24,
+    paddingTop: 24,
+    paddingBottom: 36,
+  },
+  imageStyle: {
+    flex: 1,
+  },
+  imageView: {
+    flex: 1,
+    backgroundColor: "white",
+    borderRadius: 8,
+  },
+  transparentView: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+  marginTopView: {
+    marginTop: 12,
+  },
+  innerView: {
+    flex: 2,
+    marginTop: 24,
   },
 });

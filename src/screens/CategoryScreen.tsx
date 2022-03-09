@@ -1,20 +1,9 @@
 import {Ionicons} from "@expo/vector-icons";
 import {useLayoutEffect, useState} from "react";
-import {
-  Dimensions,
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  View,
-} from "react-native";
-import {RootStackScreenProps} from "../../types";
-import {
-  CustomText,
-  CustomTextInput,
-  EmptyState,
-  FlexView,
-} from "../components/atoms";
+import {FlatList, Pressable, StyleSheet, View} from "react-native";
+import {Product, RootStackScreenProps} from "../../types";
+import {CustomTextInput, EmptyState} from "../components/atoms";
+import {ProductCard} from "../components/molecules";
 import Colors from "../constants/Colors";
 
 export default function CategoryScreen({
@@ -22,8 +11,13 @@ export default function CategoryScreen({
   route,
 }: RootStackScreenProps<"Category">) {
   const {category, categoryTitle} = route?.params;
-
   const [searchText, setSearchText] = useState("");
+
+  const filteredCategoryList = category?.filter((item: Product) =>
+    item?.title?.substring(0, searchText.length).includes(searchText)
+  );
+
+  const showEmptyState = filteredCategoryList.length === 0;
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -36,57 +30,17 @@ export default function CategoryScreen({
     });
   }, [navigation]);
 
-  const renderProduct = ({item}) => {
+  const {container, productCardStyle, textInputView} = styles;
+
+  const renderProduct = ({item}: {item: Product}) => {
     return (
-      <Pressable
+      <ProductCard
+        title={item.title}
+        imageUrl={item.image}
+        price={item.price}
         onPress={() => navigation.navigate("ProductDetail", {product: item})}
-        style={{
-          width: Dimensions.get("screen").width / 3,
-          height: Dimensions.get("screen").height / 3.5,
-          borderRadius: 8,
-          backgroundColor: "white",
-          overflow: "hidden",
-          flex: 1,
-          margin: 12,
-        }}
-      >
-        <FlexView flex={3}>
-          <Image
-            source={{uri: item.image}}
-            style={{flex: 1}}
-            resizeMode={"contain"}
-          />
-        </FlexView>
-
-        <View
-          style={{
-            flex: 1,
-            padding: 3,
-            backgroundColor: Colors.mainNight,
-            marginTop: 12,
-          }}
-        >
-          <FlexView flex={2}>
-            <CustomText
-              text={item.title}
-              type={"medium"}
-              textColor={Colors.mainGrey}
-              fontSize={12}
-              numberOfLines={2}
-            />
-          </FlexView>
-
-          <FlexView>
-            <CustomText
-              text={"$" + item.price}
-              type={"bold"}
-              textColor={Colors.mainYellow}
-              fontSize={12}
-              numberOfLines={2}
-            />
-          </FlexView>
-        </View>
-      </Pressable>
+        style={productCardStyle}
+      />
     );
   };
 
@@ -94,15 +48,9 @@ export default function CategoryScreen({
     setSearchText(text);
   };
 
-  const filteredCategoryList = category?.filter((item) =>
-    item?.title?.substring(0, searchText.length).includes(searchText)
-  );
-
-  const showEmptyState = filteredCategoryList.length === 0;
-
   return (
-    <View style={styles.container}>
-      <View style={styles.textInputView}>
+    <View style={container}>
+      <View style={textInputView}>
         <CustomTextInput
           placeholder="Search"
           onChangeText={onChangeSearch}
@@ -135,5 +83,9 @@ const styles = StyleSheet.create({
   },
   textInputView: {
     padding: 12,
+  },
+  productCardStyle: {
+    flex: 1,
+    margin: 12,
   },
 });

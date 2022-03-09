@@ -1,23 +1,21 @@
 import {useContext, useEffect, useLayoutEffect, useState} from "react";
+import {FlatList, Pressable, StyleSheet, View} from "react-native";
 import {
-  Dimensions,
-  FlatList,
-  Image,
-  Pressable,
-  StyleSheet,
-  View,
-} from "react-native";
-import {RootStackScreenProps} from "../../types";
-import {CustomText, FlexView, Loading} from "../components/atoms";
+  Product,
+  ProductsWithCategorySignature,
+  RootStackScreenProps,
+} from "../../types";
+import {CustomText, Loading} from "../components/atoms";
 import Colors from "../constants/Colors";
 import {MainContext} from "../context/mainContext";
 import {getAllProducts} from "../api/services/productsService";
 import * as SecureStore from "expo-secure-store";
+import {ProductCard} from "../components/molecules";
 
 export default function ProductListScreen({
   navigation,
-}: RootStackScreenProps<"Login">) {
-  const [products, setProducts] = useState({});
+}: RootStackScreenProps<"ProductList">) {
+  const [products, setProducts] = useState<ProductsWithCategorySignature>({});
   const context = useContext(MainContext);
 
   useLayoutEffect(() => {
@@ -35,6 +33,10 @@ export default function ProductListScreen({
     });
   }, [navigation]);
 
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
+
   const onPressLogout = async () => {
     await SecureStore.deleteItemAsync("memberToken");
     navigation.reset({
@@ -42,10 +44,6 @@ export default function ProductListScreen({
       routes: [{name: "Guest"}],
     });
   };
-
-  useEffect(() => {
-    fetchAllProducts();
-  }, []);
 
   const fetchAllProducts = async () => {
     context.setAppLoading(true);
@@ -65,64 +63,33 @@ export default function ProductListScreen({
     context.setAppLoading(false);
   };
 
-  const renderProduct = ({item}) => {
+  const {
+    container,
+    productCardStyle,
+    categoryView,
+    rowAlignedView,
+    categoryTitleView,
+    btnCategory,
+    flatListProducts,
+  } = styles;
+
+  const renderProduct = ({item}: {item: Product}) => {
     return (
-      <Pressable
+      <ProductCard
+        title={item.title}
+        imageUrl={item.image}
+        price={item.price}
         onPress={() => navigation.navigate("ProductDetail", {product: item})}
-        style={{
-          width: Dimensions.get("screen").width / 3,
-          height: Dimensions.get("screen").height / 3.5,
-          marginRight: 12,
-          borderRadius: 8,
-          backgroundColor: "white",
-          overflow: "hidden",
-        }}
-      >
-        <FlexView flex={3}>
-          <Image
-            source={{uri: item.image}}
-            style={{flex: 1}}
-            resizeMode={"contain"}
-          />
-        </FlexView>
-
-        <View
-          style={{
-            flex: 1,
-            padding: 3,
-            backgroundColor: Colors.mainNight,
-            marginTop: 12,
-          }}
-        >
-          <FlexView flex={2}>
-            <CustomText
-              text={item.title}
-              type={"medium"}
-              textColor={Colors.mainGrey}
-              fontSize={12}
-              numberOfLines={2}
-            />
-          </FlexView>
-
-          <FlexView>
-            <CustomText
-              text={"$" + item.price}
-              type={"bold"}
-              textColor={Colors.mainYellow}
-              fontSize={12}
-              numberOfLines={2}
-            />
-          </FlexView>
-        </View>
-      </Pressable>
+        style={productCardStyle}
+      />
     );
   };
 
-  const renderCategory = ({item}) => {
+  const renderCategory = ({item}: {item: string}) => {
     return (
-      <View style={{marginBottom: 12}}>
-        <View style={{flexDirection: "row", alignItems: "center"}}>
-          <View style={{flex: 1, padding: 12}}>
+      <View style={categoryView}>
+        <View style={rowAlignedView}>
+          <View style={categoryTitleView}>
             <CustomText
               text={item}
               type={"bold"}
@@ -138,7 +105,7 @@ export default function ProductListScreen({
                 categoryTitle: item,
               })
             }
-            style={{marginRight: 12}}
+            style={btnCategory}
           >
             <CustomText
               text={"Show all"}
@@ -152,7 +119,7 @@ export default function ProductListScreen({
         <FlatList
           data={products[item]}
           renderItem={renderProduct}
-          style={{flex: 1, paddingHorizontal: 12}}
+          style={flatListProducts}
           horizontal
           showsHorizontalScrollIndicator={false}
           keyExtractor={(_, index) => String(index)}
@@ -162,7 +129,7 @@ export default function ProductListScreen({
   };
 
   return (
-    <View style={styles.container}>
+    <View style={container}>
       <Loading isLoadingActive={context.appLoading} />
       <FlatList
         data={Object.keys(products)}
@@ -179,4 +146,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.mainGrey,
   },
+  productCardStyle: {
+    marginRight: 12,
+  },
+  categoryView: {
+    marginBottom: 12,
+  },
+  rowAlignedView: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  categoryTitleView: {
+    flex: 1,
+    padding: 12,
+  },
+  btnCategory: {
+    marginRight: 12,
+  },
+  flatListProducts: {flex: 1, paddingHorizontal: 12},
 });

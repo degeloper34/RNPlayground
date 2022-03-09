@@ -27,7 +27,7 @@ export type RootStackParamList = {
   Cart: undefined;
   Category: {
     categoryTitle: string;
-    category: any;
+    category: Category;
   };
 };
 
@@ -46,3 +46,22 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
     BottomTabScreenProps<RootTabParamList, Screen>,
     NativeStackScreenProps<RootStackParamList>
   >;
+
+export type Product = {
+  id: number;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  price: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
+};
+
+export type Category = Product[];
+
+export type ProductsWithCategorySignature = {
+  [index: string]: Product[];
+};

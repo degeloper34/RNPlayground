@@ -10,7 +10,6 @@ exports[`EmptyState renders correctly cart EmptyState 1`] = `
     }
   }
 >
-  <Text />
   <Text
     allowFontScaling={false}
     style={
@@ -28,24 +27,4 @@ exports[`EmptyState renders correctly cart EmptyState 1`] = `
     There is no product in your cart.
   </Text>
 </View>
-`;
-
-exports[`EmptyState renders correctly with flex 1 1`] = `
-<View
-  style={
-    Object {
-      "flex": 1,
-    }
-  }
-/>
-`;
-
-exports[`EmptyState renders correctly with flex 2 1`] = `
-<View
-  style={
-    Object {
-      "flex": 2,
-    }
-  }
-/>
 `;

@@ -5,7 +5,7 @@ const axiosClient = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
-  timeout: 5000,
+  timeout: 20000, //TODO: Downgrade timeout and check if it works
 });
 
 export function getRequest(url: string) {

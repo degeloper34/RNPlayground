@@ -8,45 +8,33 @@ import {MainContext} from "../context/mainContext";
 
 export default function CartScreen({navigation}: RootStackScreenProps<"Cart">) {
   const context = useContext(MainContext);
-
   const showEmptyState = Object.keys(context.cart).length === 0;
 
-  console.log("screen", context.cart);
-
-  const renderItem = ({item}) => {
+  const renderItem = ({item}: {item: string}) => {
     return (
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          backgroundColor: Colors.mainGrey,
-          padding: 6,
-          borderRadius: 8,
-          marginBottom: 12,
-        }}
-      >
+      <View style={styles.renderItemView}>
         <Image
           source={{uri: context.cart[item].image}}
-          style={{width: 70, height: 70}}
+          style={styles.imageStyle}
           resizeMode={"contain"}
         />
-        <View style={{paddingHorizontal: 12, flex: 1}}>
+        <View style={styles.renderItemInnerView}>
           <CustomText
             text={context.cart[item].title}
             type={"medium"}
             numberOfLines={1}
           />
-          <View style={{marginTop: 6}} />
+          <View style={styles.marginTop} />
           <CustomText
             text={"Unit Price: $" + context.cart[item].price}
             type={"medium"}
           />
-          <View style={{marginTop: 6}} />
+          <View style={styles.marginTop} />
           <CustomText
             text={"Quantity: " + context.cart[item].quantity}
             type={"medium"}
           />
-          <View style={{marginTop: 6}} />
+          <View style={styles.marginTop} />
           <CustomText
             text={
               "Total Price: $" +
@@ -69,6 +57,7 @@ export default function CartScreen({navigation}: RootStackScreenProps<"Cart">) {
       </View>
     );
   };
+
   return (
     <View style={styles.container}>
       {showEmptyState ? (
@@ -77,7 +66,7 @@ export default function CartScreen({navigation}: RootStackScreenProps<"Cart">) {
         <FlatList
           data={Object.keys(context.cart)}
           renderItem={renderItem}
-          style={{padding: 12}}
+          style={styles.flatListStyle}
           keyExtractor={(_, index) => String(index)}
         />
       )}
@@ -90,5 +79,27 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: Colors.white,
+  },
+  renderItemView: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: Colors.mainGrey,
+    padding: 6,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  imageStyle: {
+    width: 70,
+    height: 70,
+  },
+  renderItemInnerView: {
+    paddingHorizontal: 12,
+    flex: 1,
+  },
+  marginTop: {
+    marginTop: 6,
+  },
+  flatListStyle: {
+    padding: 12,
   },
 });

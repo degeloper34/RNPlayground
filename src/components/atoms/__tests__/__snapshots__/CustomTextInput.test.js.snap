@@ -3,13 +3,17 @@
 exports[`CustomTextInput password TextInput renders correctly 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#F0F0F0",
-      "borderRadius": 8,
-      "flex": 1,
-      "justifyContent": "center",
-      "padding": 6,
-    }
+    Array [
+      Object {
+        "borderRadius": 8,
+        "justifyContent": "center",
+        "paddingHorizontal": 6,
+        "paddingVertical": 12,
+      },
+      Object {
+        "backgroundColor": "#F0F0F0",
+      },
+    ]
   }
 >
   <TextInput
@@ -19,6 +23,11 @@ exports[`CustomTextInput password TextInput renders correctly 1`] = `
     placeholder="password"
     rejectResponderTermination={true}
     secureTextEntry={true}
+    style={
+      Object {
+        "color": "#21325E",
+      }
+    }
     underlineColorAndroid="transparent"
     value=""
   />
@@ -28,13 +37,17 @@ exports[`CustomTextInput password TextInput renders correctly 1`] = `
 exports[`CustomTextInput username TextInput renders correctly 1`] = `
 <View
   style={
-    Object {
-      "backgroundColor": "#F0F0F0",
-      "borderRadius": 8,
-      "flex": 1,
-      "justifyContent": "center",
-      "padding": 6,
-    }
+    Array [
+      Object {
+        "borderRadius": 8,
+        "justifyContent": "center",
+        "paddingHorizontal": 6,
+        "paddingVertical": 12,
+      },
+      Object {
+        "backgroundColor": "#F0F0F0",
+      },
+    ]
   }
 >
   <TextInput
@@ -43,6 +56,11 @@ exports[`CustomTextInput username TextInput renders correctly 1`] = `
     onChangeText={[MockFunction]}
     placeholder="username"
     rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#21325E",
+      }
+    }
     underlineColorAndroid="transparent"
     value=""
   />

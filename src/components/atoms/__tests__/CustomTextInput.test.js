@@ -9,7 +9,7 @@ describe("CustomTextInput", () => {
       .create(
         <CustomTextInput
           placeholder="username"
-          value={''}
+          value={""}
           onChangeText={onChangeUsername}
           maxLength={30}
         />
@@ -25,7 +25,7 @@ describe("CustomTextInput", () => {
       .create(
         <CustomTextInput
           placeholder="password"
-          value={''}
+          value={""}
           secureTextEntry
           onChangeText={onChangePassword}
           maxLength={30}
