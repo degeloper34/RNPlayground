@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import {RootStackScreenProps} from "../../types";
-import {CustomText, Loading} from "../components/atoms";
+import {CustomText, FlexView, Loading} from "../components/atoms";
 import Colors from "../constants/Colors";
 import {MainContext} from "../context/mainContext";
 import {getAllProducts} from "../api/services/productsService";
@@ -78,13 +78,14 @@ export default function ProductListScreen({
           overflow: "hidden",
         }}
       >
-        <View style={{flex: 3}}>
+        <FlexView flex={3}>
           <Image
             source={{uri: item.image}}
             style={{flex: 1}}
             resizeMode={"contain"}
           />
-        </View>
+        </FlexView>
+
         <View
           style={{
             flex: 1,
@@ -93,7 +94,7 @@ export default function ProductListScreen({
             marginTop: 12,
           }}
         >
-          <View style={{flex: 2}}>
+          <FlexView flex={2}>
             <CustomText
               text={item.title}
               type={"medium"}
@@ -101,9 +102,9 @@ export default function ProductListScreen({
               fontSize={12}
               numberOfLines={2}
             />
-          </View>
+          </FlexView>
 
-          <View style={{flex: 1}}>
+          <FlexView>
             <CustomText
               text={"$" + item.price}
               type={"bold"}
@@ -111,7 +112,7 @@ export default function ProductListScreen({
               fontSize={12}
               numberOfLines={2}
             />
-          </View>
+          </FlexView>
         </View>
       </Pressable>
     );

@@ -10,12 +10,10 @@ export default function ProductDetailScreen({
   navigation,
   route,
 }: RootStackScreenProps<"ProductDetail">) {
-  console.log("route", route);
   const product = route?.params?.product;
-
   const [quantity, setQuantity] = useState(1);
   const context = useContext(MainContext);
-  console.log("product", product);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: "",
@@ -29,7 +27,7 @@ export default function ProductDetailScreen({
 
   const onPressAddToCart = () => {
     context.updateCart(product, quantity, "add");
-    navigation.pop()
+    navigation.pop();
   };
 
   const hideModal = () => {
