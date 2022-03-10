@@ -38,4 +38,32 @@ It’s an e-commerce tutorial mobile app created by degeloper (Ege Barış Akyü
 
 ## iOS Showcase
 
-![](https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/cart.png =250x250)
+<div className='rows'>
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/iOS/splash.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/iOS/login.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/iOS/productList.png" width="200" height="400" />
+</div>
+
+<div className='rows'>
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/iOS/category.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/iOS/productDetail.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/iOS/cart.png" width="200" height="400" />
+</div>
+
+## Android Showcase
+
+<div className='rows'>
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/Android/splash.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/Android/login.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/Android/productList.png" width="200" height="400" />
+</div>
+
+<div className='rows'>
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/Android/category.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/Android/productDetail.png" width="200" height="400" />
+  <img src="https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/Android/cart.png" width="200" height="400" />
+</div>
+
+
+
+
