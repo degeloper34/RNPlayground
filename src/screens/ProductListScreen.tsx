@@ -49,8 +49,6 @@ export default function ProductListScreen({
     context?.setAppLoading(true);
     const productsData = await getAllProducts();
 
-    console.log("productsData", productsData);
-
     let productsByCategory: {[category: string]: Product[]} = {};
 
     for (let eachProduct of productsData) {
