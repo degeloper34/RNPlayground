@@ -1,2 +1,2 @@
 # Hello, Welcome to RNPlayground project created by degeloper
-React Native playground/workspace for degeloper
+Its a React Native project written with TypeScript and backend by https://fakestoreapi.com
