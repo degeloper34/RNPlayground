@@ -31,13 +31,15 @@ It’s an e-commerce tutorial mobile app created by degeloper (Ege Barış Akyü
 - SplashScreen, loading and empty states
 - Error handler for the service requests
 
-## Deep Linking
+## Deep Linking iOS
 
 - npx uri-scheme open "exp://127.0.0.1:19000/--/product/1" --ios
 - npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --ios
 
+## Deep Linking Android
+
 - npx uri-scheme open "exp://127.0.0.1:19000/--/product/1" --android
-- - npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --android
+- npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --android
 
 ## iOS Showcase
 
