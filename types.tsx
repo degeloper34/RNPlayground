@@ -22,10 +22,9 @@ export type RootStackParamList = {
   Login: undefined;
   ProductList: undefined;
   Cart: undefined;
-  ProductDetail: {product: Product};
+  ProductDetail: {productId: number};
   Category: {
-    categoryTitle: string;
-    category: Category;
+    category: string;
   };
 };
 
@@ -35,8 +34,6 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
 export type RootTabParamList = {
   TabProductList: undefined;
   TabCart: undefined;
-  TabOne: undefined;
-  TabTwo: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
@@ -63,15 +60,3 @@ export type Category = Product[];
 export type ProductsWithCategorySignature = {
   [index: string]: Product[];
 };
-
-export interface IMainContext {
-  appLoading: boolean;
-  cart: object;
-  amountByCategory: object;
-  setAppLoading: (bool: boolean) => void;
-  updateCart: (
-    product: Product,
-    quantity: number,
-    operation: "add" | "remove"
-  ) => void;
-}

@@ -1,19 +1,23 @@
 import {Ionicons} from "@expo/vector-icons";
-import {useLayoutEffect, useState} from "react";
+import {useContext, useLayoutEffect, useState} from "react";
 import {FlatList, Pressable, StyleSheet, View} from "react-native";
 import {Product, RootStackScreenProps} from "../../types";
 import {CustomTextInput, EmptyState} from "../components/atoms";
 import {ProductCard} from "../components/molecules";
 import Colors from "../constants/Colors";
+import {MainContext} from "../context/mainContext";
 
 export default function CategoryScreen({
   navigation,
   route,
 }: RootStackScreenProps<"Category">) {
-  const {category, categoryTitle} = route?.params;
+  const {category} = route?.params;
   const [searchText, setSearchText] = useState("");
+  const context = useContext(MainContext);
 
-  const filteredCategoryList = category?.filter((item: Product) =>
+  const selectedCategory = context.productByCategory[category];
+
+  const filteredCategoryList = selectedCategory?.filter((item: Product) =>
     item?.title?.substring(0, searchText.length).includes(searchText)
   );
 
@@ -21,7 +25,7 @@ export default function CategoryScreen({
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: categoryTitle,
+      headerTitle: category,
       headerLeft: () => (
         <Pressable onPress={() => navigation.pop()}>
           <Ionicons name="arrow-back-outline" size={24} color={Colors.white} />
@@ -38,7 +42,9 @@ export default function CategoryScreen({
         title={item.title}
         imageUrl={item.image}
         price={item.price}
-        onPress={() => navigation.navigate("ProductDetail", {product: item})}
+        onPress={() =>
+          navigation.navigate("ProductDetail", {productId: item.id})
+        }
         style={productCardStyle}
       />
     );

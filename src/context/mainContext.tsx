@@ -1,5 +1,5 @@
 import {createContext, useState, ReactNode} from "react";
-import {IMainContext, Product} from "../../types";
+import {Product} from "../../types";
 
 export const MainContext = createContext<any>(null);
 
@@ -8,8 +8,11 @@ export function MainContextProvider({children}: {children: ReactNode}) {
     appLoading: false,
     cart: {},
     amountByCategory: {},
+    productList: [],
+    productByCategory: {},
     setAppLoading,
     updateCart,
+    setProductListAndProductsByCategory,
   });
 
   function updateCart(
@@ -48,9 +51,9 @@ export function MainContextProvider({children}: {children: ReactNode}) {
         cartObject[eachProductId].price * cartObject[eachProductId].quantity;
 
       if (objByCategory === undefined) {
-        objByCategory = amount;
+        amountByCategoryObject[cartObject[eachProductId].category] = amount;
       } else {
-        objByCategory += amount;
+        amountByCategoryObject[cartObject[eachProductId].category] += amount;
       }
     }
 
@@ -63,6 +66,17 @@ export function MainContextProvider({children}: {children: ReactNode}) {
 
   function setAppLoading(bool: boolean) {
     setDefaultContext({...defaultContext, appLoading: bool});
+  }
+
+  function setProductListAndProductsByCategory(
+    products: any,
+    productByCategory: any
+  ) {
+    setDefaultContext({
+      ...defaultContext,
+      ...(defaultContext.productList = products),
+      ...(defaultContext.productByCategory = productByCategory),
+    });
   }
 
   return (

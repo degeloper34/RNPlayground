@@ -10,9 +10,11 @@ export default function ProductDetailScreen({
   navigation,
   route,
 }: RootStackScreenProps<"ProductDetail">) {
-  const product = route?.params?.product;
+  const productId = route?.params?.productId;
   const [quantity, setQuantity] = useState(1);
   const context = useContext(MainContext);
+
+  const selectedProduct = context.productList[productId];
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -26,7 +28,7 @@ export default function ProductDetailScreen({
   }, [navigation]);
 
   const onPressAddToCart = () => {
-    context.updateCart(product, quantity, "add");
+    context.updateCart(selectedProduct, quantity, "add");
     navigation.pop();
   };
 
@@ -64,14 +66,14 @@ export default function ProductDetailScreen({
       <View style={innerContainer}>
         <View style={imageView}>
           <Image
-            source={{uri: product.image}}
+            source={{uri: selectedProduct?.image}}
             style={imageStyle}
             resizeMode={"contain"}
           />
         </View>
         <View style={innerView}>
           <CustomText
-            text={product.title}
+            text={selectedProduct?.title}
             type={"bold"}
             textColor={Colors.mainYellow}
             fontSize={14}
@@ -81,7 +83,7 @@ export default function ProductDetailScreen({
           <View style={marginTopView} />
 
           <CustomText
-            text={product.description}
+            text={selectedProduct?.description}
             type={"medium"}
             textColor={Colors.mainGrey}
             fontSize={12}
@@ -91,7 +93,7 @@ export default function ProductDetailScreen({
           <View style={marginTopView} />
 
           <CustomText
-            text={"$" + product.price}
+            text={"$" + selectedProduct?.price}
             type={"bold"}
             textColor={Colors.mainYellow}
             fontSize={14}

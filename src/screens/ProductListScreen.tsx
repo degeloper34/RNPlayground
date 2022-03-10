@@ -59,7 +59,13 @@ export default function ProductListScreen({
       productsByCategory[eachProduct.category].push(eachProduct);
     }
 
+    context?.setProductListAndProductsByCategory(
+      productsData,
+      productsByCategory
+    );
+
     setProducts(productsByCategory);
+
     context?.setAppLoading(false);
   };
 
@@ -79,7 +85,9 @@ export default function ProductListScreen({
         title={item.title}
         imageUrl={item.image}
         price={item.price}
-        onPress={() => navigation.navigate("ProductDetail", {product: item})}
+        onPress={() =>
+          navigation.navigate("ProductDetail", {productId: item.id})
+        }
         style={productCardStyle}
       />
     );
@@ -101,7 +109,7 @@ export default function ProductListScreen({
           <Pressable
             onPress={() =>
               navigation.navigate("Category", {
-                category: products[item],
+                category: item,
                 categoryTitle: item,
               })
             }

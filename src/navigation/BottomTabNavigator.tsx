@@ -4,13 +4,14 @@ import {RootTabParamList} from "../../types";
 import Colors from "../constants/Colors";
 import CartScreen from "../screens/CartScreen";
 import ProductListScreen from "../screens/ProductListScreen";
+import ProductListNavigator from "./StackNavigators/ProductListNavigator";
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="TabProductList"
       screenOptions={{
         tabBarActiveTintColor: Colors.mainYellow,
         headerStyle: {
@@ -30,11 +31,12 @@ function BottomTabNavigator() {
     >
       <BottomTab.Screen
         name="TabProductList"
-        component={ProductListScreen}
+        component={ProductListNavigator}
         options={{
           title: "Products",
           tabBarIcon: ({color}) => <TabBarIcon name="home" color={color} />,
           tabBarLabel: "Home",
+          headerShown: false
         }}
       />
 

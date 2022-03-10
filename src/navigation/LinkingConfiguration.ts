@@ -6,25 +6,28 @@
 
 import {LinkingOptions} from "@react-navigation/native";
 import * as Linking from "expo-linking";
-
 import {RootStackParamList} from "../../types";
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.makeUrl("/")],
+  prefixes: [Linking.createURL("/")],
   config: {
     screens: {
+      Guest: {
+        screens: {
+          Login: "login",
+        },
+      },
       Root: {
         screens: {
-          TabOne: {
+          TabProductList: {
+            initialRouteName: "ProductList",
             screens: {
-              TabOneScreen: "one",
+              ProductList: "product-list",
+              ProductDetail: "product/:productId",
+              Category: "category/:category",
             },
           },
-          TabTwo: {
-            screens: {
-              TabTwoScreen: "two",
-            },
-          },
+          TabCart: "tab-cart",
         },
       },
     },
