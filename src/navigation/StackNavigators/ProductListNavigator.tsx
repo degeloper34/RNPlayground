@@ -28,16 +28,7 @@ export default () => {
         options={{headerTitle: "Products"}}
       />
 
-      <Stack.Screen
-        name="Category"
-        component={CategoryScreen}
-        options={{
-          headerStyle: {backgroundColor: Colors.mainNight},
-          headerTitleStyle: {
-            color: Colors.mainGrey,
-          },
-        }}
-      />
+      <Stack.Screen name="Category" component={CategoryScreen} />
 
       <Stack.Group
         screenOptions={{presentation: "transparentModal", headerShown: false}}
