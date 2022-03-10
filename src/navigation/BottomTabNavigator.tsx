@@ -45,6 +45,7 @@ function BottomTabNavigator() {
         component={CartScreen}
         options={{
           title: "Cart",
+          headerTitleAlign: 'center',
           tabBarIcon: ({color}) => (
             <TabBarIcon name="shopping-basket" color={color} />
           ),

@@ -19,6 +19,7 @@ export default () => {
         headerTitleStyle: {
           color: Colors.mainYellow,
         },
+        headerTitleAlign: 'center'
       }}
       initialRouteName={"ProductList"}
     >
