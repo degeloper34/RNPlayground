@@ -30,3 +30,8 @@ It’s an e-commerce tutorial mobile app created by degeloper (Ege Barış Akyü
 - Unit and Snapshot tests for components and screens.
 - SplashScreen, loading and empty states
 - Error handler for the service requests
+
+## Deep Linking
+
+npx uri-scheme open "exp://127.0.0.1:19000/--/product/1" --ios
+npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --ios

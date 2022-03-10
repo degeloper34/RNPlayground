@@ -15,11 +15,18 @@ export default function CategoryScreen({
   const [searchText, setSearchText] = useState("");
   const context = useContext(MainContext);
 
-  const selectedCategory = context.productByCategory[category];
+  const checkProductByCategoryIsNotEmpty =
+    Object.keys(context.productByCategory).length > 0;
 
-  const filteredCategoryList = selectedCategory?.filter((item: Product) =>
-    item?.title?.substring(0, searchText.length).includes(searchText)
-  );
+  const selectedCategory = checkProductByCategoryIsNotEmpty
+    ? context.productByCategory[category]
+    : {};
+
+  const filteredCategoryList = checkProductByCategoryIsNotEmpty
+    ? selectedCategory?.filter((item: Product) =>
+        item?.title?.substring(0, searchText.length).includes(searchText)
+      )
+    : [];
 
   const showEmptyState = filteredCategoryList.length === 0;
 
