@@ -14,7 +14,12 @@ export default function ProductDetailScreen({
   const [quantity, setQuantity] = useState(1);
   const context = useContext(MainContext);
 
-  const selectedProduct = context.productList[productId];
+  const selectedProduct = context.productList[productId - 1];
+
+  console.log("context.productList", context.productList);
+  console.log("productId", productId);
+
+  console.log("selectedProduct", selectedProduct);
 
   useLayoutEffect(() => {
     navigation.setOptions({
