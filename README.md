@@ -35,3 +35,7 @@ It’s an e-commerce tutorial mobile app created by degeloper (Ege Barış Akyü
 
 - npx uri-scheme open "exp://127.0.0.1:19000/--/product/1" --ios
 - npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --ios
+
+## iOS Showcase
+
+![alt text](https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/cart.png)
