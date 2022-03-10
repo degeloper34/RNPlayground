@@ -1,6 +1,10 @@
 import {ActivityIndicator, View, StyleSheet} from "react-native";
 
-export function Loading({isLoadingActive}: {isLoadingActive: boolean}) {
+export function Loading({
+  isLoadingActive,
+}: {
+  isLoadingActive: boolean | undefined;
+}) {
   if (isLoadingActive) {
     return (
       <View style={styles.indicatorView}>

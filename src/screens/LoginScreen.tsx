@@ -25,7 +25,6 @@ export default function LoginScreen({
   const onPressLoginBtn = async () => {
     context.setAppLoading(true);
     const memberLoginResponse = await memberLogin(username, password);
-    console.log("memberLoginResponse", memberLoginResponse);
 
     context.setAppLoading(false);
 

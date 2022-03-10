@@ -63,3 +63,15 @@ export type Category = Product[];
 export type ProductsWithCategorySignature = {
   [index: string]: Product[];
 };
+
+export interface IMainContext {
+  appLoading: boolean;
+  cart: object;
+  amountByCategory: object;
+  setAppLoading: (bool: boolean) => void;
+  updateCart: (
+    product: Product,
+    quantity: number,
+    operation: "add" | "remove"
+  ) => void;
+}

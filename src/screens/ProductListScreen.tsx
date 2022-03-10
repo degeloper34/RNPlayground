@@ -46,21 +46,21 @@ export default function ProductListScreen({
   };
 
   const fetchAllProducts = async () => {
-    context.setAppLoading(true);
-    const abc = await getAllProducts();
+    context?.setAppLoading(true);
+    const productsData = await getAllProducts();
 
-    let test: any = {};
+    let productsByCategory: {[category: string]: Product[]} = {};
 
-    for (let eachProduct of abc) {
-      if (!test.hasOwnProperty(eachProduct.category)) {
-        test[eachProduct.category] = [];
+    for (let eachProduct of productsData) {
+      if (!productsByCategory.hasOwnProperty(eachProduct.category)) {
+        productsByCategory[eachProduct.category] = [];
       }
 
-      test[eachProduct.category].push(eachProduct);
+      productsByCategory[eachProduct.category].push(eachProduct);
     }
 
-    setProducts(test);
-    context.setAppLoading(false);
+    setProducts(productsByCategory);
+    context?.setAppLoading(false);
   };
 
   const {

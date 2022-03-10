@@ -1,7 +1,12 @@
 import {FontAwesome} from "@expo/vector-icons";
 import {useContext} from "react";
 import {FlatList, Image, Pressable, StyleSheet, View} from "react-native";
-import {CustomText, EmptyState} from "../components/atoms";
+import {
+  CustomButton,
+  CustomText,
+  EmptyState,
+  FlexView,
+} from "../components/atoms";
 import Colors from "../constants/Colors";
 import {MainContext} from "../context/mainContext";
 
@@ -36,14 +41,6 @@ export default function CartScreen() {
             text={"Quantity: " + context.cart[item].quantity}
             type={"medium"}
           />
-          <View style={styles.marginTop} />
-          <CustomText
-            text={
-              "Total Price: $" +
-              context.cart[item].quantity * context.cart[item].price
-            }
-            type={"medium"}
-          />
         </View>
         <Pressable
           onPress={() =>
@@ -60,17 +57,110 @@ export default function CartScreen() {
     );
   };
 
+  const calculateSubTotal = () => {
+    return Object.keys(context?.amountByCategory).reduce(
+      (sum, key) => sum + parseFloat(context?.amountByCategory[key] || 0),
+      0
+    );
+  };
+
+  const calculateElectronicDiscount = () => {
+    if (context?.amountByCategory["electronics"] > 750) {
+      return context?.amountByCategory["electronics"] * 0.05;
+    }
+
+    return 0;
+  };
+
+  const calculateJeweleryDiscount = () => {
+    if (context?.amountByCategory["jewelery"] > 1000) {
+      return context?.amountByCategory["jewelery"] * 0.15;
+    }
+
+    return 0;
+  };
+
+  const calculateTotal = () => {
+    const subTotal = calculateSubTotal();
+    const electronicDiscount = calculateElectronicDiscount();
+    const jeweleryDiscount = calculateJeweleryDiscount();
+
+    return subTotal - electronicDiscount - jeweleryDiscount;
+  };
+
   return (
     <View style={styles.container}>
       {showEmptyState ? (
         <EmptyState emptyStateText={"There is no product in your cart."} />
       ) : (
-        <FlatList
-          data={Object.keys(context.cart)}
-          renderItem={renderItem}
-          style={styles.flatListStyle}
-          keyExtractor={(_, index) => String(index)}
-        />
+        <>
+          <FlatList
+            data={Object.keys(context.cart)}
+            renderItem={renderItem}
+            style={styles.flatListStyle}
+            keyExtractor={(_, index) => String(index)}
+          />
+
+          <View style={{padding: 12}}>
+            <View style={styles.rowAlignedView}>
+              <FlexView>
+                <CustomText text={"Sub Total"} type={"medium"} fontSize={14} />
+              </FlexView>
+              <CustomText
+                text={"$" + calculateSubTotal().toFixed(2)}
+                type={"medium"}
+                fontSize={14}
+              />
+            </View>
+
+            {context?.amountByCategory["electronics"] > 750 && (
+              <View style={styles.rowAlignedView}>
+                <FlexView>
+                  <CustomText
+                    text={"Electronic discount"}
+                    type={"medium"}
+                    fontSize={14}
+                  />
+                </FlexView>
+                <CustomText
+                  text={"- $" + calculateElectronicDiscount().toFixed(2)}
+                  type={"medium"}
+                  fontSize={14}
+                />
+              </View>
+            )}
+
+            {context?.amountByCategory["jewelery"] > 1000 && (
+              <View style={styles.rowAlignedView}>
+                <FlexView>
+                  <CustomText
+                    text={"Jewelery discount"}
+                    type={"medium"}
+                    fontSize={14}
+                  />
+                </FlexView>
+                <CustomText
+                  text={"- $" + calculateJeweleryDiscount().toFixed(2)}
+                  type={"medium"}
+                  fontSize={14}
+                />
+              </View>
+            )}
+
+            <View style={styles.totalView}>
+              <FlexView>
+                <CustomText text={"Total"} type={"bold"} fontSize={14} />
+              </FlexView>
+              <CustomText
+                text={"$" + calculateTotal().toFixed(2)}
+                type={"bold"}
+                fontSize={14}
+              />
+            </View>
+
+            <CustomButton text="Buy" />
+          </View>
+        </>
       )}
     </View>
   );
@@ -103,5 +193,14 @@ const styles = StyleSheet.create({
   },
   flatListStyle: {
     padding: 12,
+  },
+  rowAlignedView: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  totalView: {
+    paddingVertical: 12,
+    flexDirection: "row",
+    alignItems: "center",
   },
 });
