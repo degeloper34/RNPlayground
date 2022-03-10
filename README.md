@@ -33,5 +33,5 @@ It’s an e-commerce tutorial mobile app created by degeloper (Ege Barış Akyü
 
 ## Deep Linking
 
-npx uri-scheme open "exp://127.0.0.1:19000/--/product/1" --ios
-npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --ios
+- npx uri-scheme open "exp://127.0.0.1:19000/--/product/1" --ios
+- npx uri-scheme open "exp://127.0.0.1:19000/--/category/jewelery" --ios
