@@ -38,4 +38,4 @@ It’s an e-commerce tutorial mobile app created by degeloper (Ege Barış Akyü
 
 ## iOS Showcase
 
-![alt text](https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/cart.png)
+![](https://github.com/degeloper34/RNPlayground/blob/master/src/assets/marketingResources/cart.png =250x250)
